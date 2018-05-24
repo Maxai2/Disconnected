@@ -47,7 +47,7 @@ namespace Disconnected
 
         public DataTable GetProcessors()
         {
-            _dataSet.Tables["Processors"].RowChanged += IntelDB_RowChanged;
+            _dataSet.Tables["Processors"].RowChanged += IntelDB_RowChanged; 
             _dataSet.Tables["Processors"].RowDeleted += IntelDB_RowDeleted;
             _dataSet.Tables["Processors"].TableNewRow += IntelDB_TableNewRow;
 

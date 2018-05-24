@@ -25,7 +25,7 @@ namespace Disconnected
             _db = new IntelDB();
 
             toolStripDelete.Text = DeletedCount.ToString();
-            toolStripUpdate.Text = UpdatedCount.ToString();
+            toolStripUpdate.Text = UpdatedCount.ToString(); 
             toolStripInserted.Text = InsertedCount.ToString();
         }
 

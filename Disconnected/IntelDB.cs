@@ -27,93 +27,49 @@ namespace Disconnected
             _authorAdapter.InsertCommand.Parameters.Add(new SqlParameter("Socket", SqlDbType.NVarChar, 10, "Socket"));
             _authorAdapter.InsertCommand.Parameters.Add(new SqlParameter("Generation", SqlDbType.NVarChar, 20, "Generation"));
             _authorAdapter.InsertCommand.Parameters.Add(new SqlParameter("Cores", SqlDbType.TinyInt, 0, "Cores"));
-            SqlParameter paramCoreSpeed = new SqlParameter("CoreSpeed", SqlDbType.Decimal);
-            paramCoreSpeed.SourceColumn = "CoreSpeed";
-            paramCoreSpeed.Precision = 5;
-            paramCoreSpeed.Scale = 1;
-            _authorAdapter.InsertCommand.Parameters.Add(paramCoreSpeed);
-            SqlParameter paramBusSpeed = new SqlParameter("BusSpeed", SqlDbType.Decimal);
-            paramBusSpeed.SourceColumn = "BusSpeed";
-            paramBusSpeed.Precision = 5;
-            paramBusSpeed.Scale = 1;
-            _authorAdapter.InsertCommand.Parameters.Add(paramBusSpeed);
+            SqlParameter paramInsCoreSpeed = new SqlParameter("CoreSpeed", SqlDbType.Decimal);
+            paramInsCoreSpeed.SourceColumn = "CoreSpeed";
+            paramInsCoreSpeed.Precision = 5;
+            paramInsCoreSpeed.Scale = 1;
+            _authorAdapter.InsertCommand.Parameters.Add(paramInsCoreSpeed);
+            SqlParameter paramInsBusSpeed = new SqlParameter("BusSpeed", SqlDbType.Decimal);
+            paramInsBusSpeed.SourceColumn = "BusSpeed";
+            paramInsBusSpeed.Precision = 5;
+            paramInsBusSpeed.Scale = 1;
+            _authorAdapter.InsertCommand.Parameters.Add(paramInsBusSpeed);
             _authorAdapter.InsertCommand.Parameters.Add(new SqlParameter("Graphics", SqlDbType.Bit, 0, "Graphics"));
             _authorAdapter.InsertCommand.Parameters.Add(new SqlParameter("Price", SqlDbType.Int, 0, "Price"));
 
-
+            _authorAdapter.UpdateCommand = new SqlCommand("UPDATE Processors SET Family = @Family, Socket = @Socket, Generation = @Generation, Cores = @Cores, CoreSpeed = @CoreSpeed, BusSpeed = @BusSpeed, Graphics = @Graphics, Price = @Price WHERE Id = @Id", _connection);
+            _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Family", SqlDbType.NVarChar, 30, "Family"));
+            _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Socket", SqlDbType.NVarChar, 10, "Socket"));
+            _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Generation", SqlDbType.NVarChar, 20, "Generation"));
+            _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Cores", SqlDbType.TinyInt, 0, "Cores"));
+            SqlParameter paramUpdCoreSpeed = new SqlParameter("CoreSpeed", SqlDbType.Decimal);
+            paramUpdCoreSpeed.SourceColumn = "CoreSpeed";
+            paramUpdCoreSpeed.Precision = 5;
+            paramUpdCoreSpeed.Scale = 1;
+            _authorAdapter.UpdateCommand.Parameters.Add(paramUpdCoreSpeed);
+            SqlParameter paramUpdBusSpeed = new SqlParameter("BusSpeed", SqlDbType.Decimal);
+            paramUpdBusSpeed.SourceColumn = "BusSpeed";
+            paramUpdBusSpeed.Precision = 5;
+            paramUpdBusSpeed.Scale = 1;
+            _authorAdapter.UpdateCommand.Parameters.Add(paramUpdBusSpeed);
+            _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Graphics", SqlDbType.Bit, 0, "Graphics"));
+            _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Price", SqlDbType.Int, 0, "Price"));
+            _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Id", SqlDbType.Int, 0, "Id"));
 
             _authorAdapter.Fill(_dataSet, "Processors");
         }
 
         public DataTable GetProcessors()
         {
-            _dataSet.Tables["Processors"].RowChanged += IntelDB_RowChanged; 
-            _dataSet.Tables["Processors"].RowDeleted += IntelDB_RowDeleted;
-            _dataSet.Tables["Processors"].TableNewRow += IntelDB_TableNewRow;
-
             return _dataSet.Tables["Processors"];
-        }
-
-        private void IntelDB_TableNewRow(object sender, DataTableNewRowEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void IntelDB_RowDeleted(object sender, DataRowChangeEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void IntelDB_RowChanged(object sender, DataRowChangeEventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         public void PushProcessors()
         {
             _authorAdapter.Update(_dataSet.Tables["Processors"]);
-        }
-
-        public int GetDeletedItemsCount()
-        {
-            int count = 0;
-            foreach (DataRow row in _dataSet.Tables["Processors"].Rows)
-            {
-                if (row.RowState == DataRowState.Deleted)
-                {
-                    ++count;
-                }
-            }
-
-            return count;
-        }
-
-        public int GetUpdatedItemsCount()
-        {
-            int count = 0;
-            foreach (DataRow row in _dataSet.Tables["Processors"].Rows)
-            {
-                if (row.RowState == DataRowState.Modified)
-                {
-                    ++count;
-                }
-            }
-
-            return count;
-        }
-
-        public int GetInsertedItemsCount()
-        {
-            int count = 0;
-            foreach (DataRow row in _dataSet.Tables["Processors"].Rows)
-            {
-                if (row.RowState == DataRowState.Added)
-                {
-                    ++count;
-                }
-            }
-
-            return count;
         }
     }
 }

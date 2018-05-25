@@ -51,7 +51,7 @@
             this.dGVAuthors.Location = new System.Drawing.Point(0, 25);
             this.dGVAuthors.Name = "dGVAuthors";
             this.dGVAuthors.Size = new System.Drawing.Size(950, 460);
-            this.dGVAuthors.TabIndex = 0;
+            this.dGVAuthors.TabIndex = 2;
             // 
             // bShowData
             // 
@@ -60,7 +60,6 @@
             this.bShowData.Name = "bShowData";
             this.bShowData.Size = new System.Drawing.Size(952, 23);
             this.bShowData.TabIndex = 1;
-            this.bShowData.TabStop = false;
             this.bShowData.Text = "Show Data";
             this.bShowData.UseVisualStyleBackColor = true;
             this.bShowData.Click += new System.EventHandler(this.bShowData_Click);
@@ -72,8 +71,7 @@
             this.bPushProcessors.Location = new System.Drawing.Point(0, 491);
             this.bPushProcessors.Name = "bPushProcessors";
             this.bPushProcessors.Size = new System.Drawing.Size(952, 24);
-            this.bPushProcessors.TabIndex = 2;
-            this.bPushProcessors.TabStop = false;
+            this.bPushProcessors.TabIndex = 3;
             this.bPushProcessors.Text = "Push Data";
             this.bPushProcessors.UseVisualStyleBackColor = true;
             this.bPushProcessors.Click += new System.EventHandler(this.bPushProcessors_Click);

@@ -27,15 +27,19 @@ namespace Disconnected
             _authorAdapter.InsertCommand.Parameters.Add(new SqlParameter("Socket", SqlDbType.NVarChar, 10, "Socket"));
             _authorAdapter.InsertCommand.Parameters.Add(new SqlParameter("Generation", SqlDbType.NVarChar, 20, "Generation"));
             _authorAdapter.InsertCommand.Parameters.Add(new SqlParameter("Cores", SqlDbType.TinyInt, 0, "Cores"));
-            SqlParameter paramInsCoreSpeed = new SqlParameter("CoreSpeed", SqlDbType.Decimal);
-            paramInsCoreSpeed.SourceColumn = "CoreSpeed";
-            paramInsCoreSpeed.Precision = 5;
-            paramInsCoreSpeed.Scale = 1;
+            SqlParameter paramInsCoreSpeed = new SqlParameter("CoreSpeed", SqlDbType.Decimal)
+            {
+                SourceColumn = "CoreSpeed",
+                Precision = 5,
+                Scale = 1
+            };
             _authorAdapter.InsertCommand.Parameters.Add(paramInsCoreSpeed);
-            SqlParameter paramInsBusSpeed = new SqlParameter("BusSpeed", SqlDbType.Decimal);
-            paramInsBusSpeed.SourceColumn = "BusSpeed";
-            paramInsBusSpeed.Precision = 5;
-            paramInsBusSpeed.Scale = 1;
+            SqlParameter paramInsBusSpeed = new SqlParameter("BusSpeed", SqlDbType.Decimal)
+            {
+                SourceColumn = "BusSpeed",
+                Precision = 5,
+                Scale = 1
+            };
             _authorAdapter.InsertCommand.Parameters.Add(paramInsBusSpeed);
             _authorAdapter.InsertCommand.Parameters.Add(new SqlParameter("Graphics", SqlDbType.Bit, 0, "Graphics"));
             _authorAdapter.InsertCommand.Parameters.Add(new SqlParameter("Price", SqlDbType.Int, 0, "Price"));
@@ -45,15 +49,19 @@ namespace Disconnected
             _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Socket", SqlDbType.NVarChar, 10, "Socket"));
             _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Generation", SqlDbType.NVarChar, 20, "Generation"));
             _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Cores", SqlDbType.TinyInt, 0, "Cores"));
-            SqlParameter paramUpdCoreSpeed = new SqlParameter("CoreSpeed", SqlDbType.Decimal);
-            paramUpdCoreSpeed.SourceColumn = "CoreSpeed";
-            paramUpdCoreSpeed.Precision = 5;
-            paramUpdCoreSpeed.Scale = 1;
+            SqlParameter paramUpdCoreSpeed = new SqlParameter("CoreSpeed", SqlDbType.Decimal)
+            {
+                SourceColumn = "CoreSpeed",
+                Precision = 5,
+                Scale = 1
+            };
             _authorAdapter.UpdateCommand.Parameters.Add(paramUpdCoreSpeed);
-            SqlParameter paramUpdBusSpeed = new SqlParameter("BusSpeed", SqlDbType.Decimal);
-            paramUpdBusSpeed.SourceColumn = "BusSpeed";
-            paramUpdBusSpeed.Precision = 5;
-            paramUpdBusSpeed.Scale = 1;
+            SqlParameter paramUpdBusSpeed = new SqlParameter("BusSpeed", SqlDbType.Decimal)
+            {
+                SourceColumn = "BusSpeed",
+                Precision = 5,
+                Scale = 1
+            };
             _authorAdapter.UpdateCommand.Parameters.Add(paramUpdBusSpeed);
             _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Graphics", SqlDbType.Bit, 0, "Graphics"));
             _authorAdapter.UpdateCommand.Parameters.Add(new SqlParameter("Price", SqlDbType.Int, 0, "Price"));

@@ -21,9 +21,14 @@ namespace Disconnected
             _db = new IntelDB();
         }
 
+        BindingSource dataSource;
+        DataTable table;
+
         private void bShowData_Click(object sender, EventArgs e)
         {
-            dGVAuthors.DataSource = _db.GetProcessors();
+            table = _db.GetProcessors();
+            
+            dGVAuthors.DataSource = table;
 
             _db.GetProcessors().RowDeleted += Form1_RowDeleted;
             _db.GetProcessors().RowChanged += Form1_RowChanged;
@@ -32,6 +37,9 @@ namespace Disconnected
 
         private void Form1_TableNewRow(object sender, DataTableNewRowEventArgs e)
         {
+            DataRow row = table.Rows[13];
+            table.Rows.Add(row);
+
             toolStripInserted.Text = Convert.ToString(Convert.ToInt32(toolStripInserted.Text) + 1);
         }
 

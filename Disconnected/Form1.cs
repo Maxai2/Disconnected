@@ -37,8 +37,8 @@ namespace Disconnected
 
         private void Form1_TableNewRow(object sender, DataTableNewRowEventArgs e)
         {
-            DataRow row = table.Rows[13];
-            table.Rows.Add(row);
+            //DataRow row = table.Rows[13];
+            //table.Rows.Add(row);
 
             toolStripInserted.Text = Convert.ToString(Convert.ToInt32(toolStripInserted.Text) + 1);
         }

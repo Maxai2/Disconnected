@@ -13,7 +13,7 @@ namespace Disconnected
     {
         private DataSet _dataSet = new DataSet();
         private SqlDataAdapter _authorAdapter = new SqlDataAdapter();
-        private SqlConnection _connection = new SqlConnection("Server=(local);Database=IntelCPU;Trusted_Connection=True;");
+        private SqlConnection _connection = new SqlConnection("Data Source=.;Server=(local);Database=IntelCPU;User Id=admin;Password=admin;Integrated Security=false;");
 
         public IntelDB()
         {
